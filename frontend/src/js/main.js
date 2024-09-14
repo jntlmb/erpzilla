@@ -1,6 +1,6 @@
 import "../style.css";
 import LoginPost from "./models/LoginPost";
-import CryptoJS from "crypto-js"; // Assuming CryptoJS is included in your HTML
+import CryptoJS from "crypto-js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
