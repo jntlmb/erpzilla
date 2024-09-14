@@ -1,5 +1,6 @@
 import "../style.css";
 import LoginPost from "./models/LoginPost";
+import CryptoJS from "crypto-js"; // Assuming CryptoJS is included in your HTML
 
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
@@ -12,7 +13,7 @@ async function handleLogin(event) {
     event.preventDefault();
     const identifier = document.getElementById("identifier").value;
     const password = document.getElementById("password").value;
-    const encryptedPassword = password;
+    const encryptedPassword = CryptoJS.SHA256(password).toString();
 
     const loginPost = new LoginPost(identifier, encryptedPassword);
 
@@ -35,7 +36,7 @@ async function handleLogin(event) {
         }
     } catch (error) {
         console.error("Error during login:", error);
-        alert(`An error occurred. Please try again. ${result.Message}`);
+        alert(`An error occurred. Please try again.`);
     }
 }
 
